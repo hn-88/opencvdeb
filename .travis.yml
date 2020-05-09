@@ -21,19 +21,21 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - cmake -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_INSTALL_PREFIX=OpenCVLocal -D CPACK_BINARY_DEB=ON ..
-  - cat CMakeCache.txt | grep CPACK_BINARY_DEB
-  - make package
+  - cmake -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_INSTALL_PREFIX=OpenCVLocal ..
+  #- cat CMakeCache.txt | grep CPACK_BINARY_DEB
+  - make -j2
+  - make install
+  - cd 
+  
+  - zip -r OpenCVbuild.zip /home/travis/home/travis/build/hn-88/opencv/opencv-4.3.0/build/OpenCVLocal
   
   # in case Github deploy fails
-  - curl --upload-file Open*dev*.deb https://transfer.sh/OpenCV-4.3.0-dev.deb
-  - curl --upload-file Open*libs*.deb https://transfer.sh/OpenCV-4.3.0-libs.deb
-  
+  - curl --upload-file OpenCVbuild.zip https://transfer.sh/OpenCVbuild.zip
   
 deploy:
   provider: releases
   token: $mytokenname
   file_glob: true
-  file: OpenCV*.deb
+  file: OpenCVbuild.zip
   draft: true
   edge: true
