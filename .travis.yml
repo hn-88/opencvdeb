@@ -30,7 +30,8 @@ script:
   - zip -r OpenCVbuild.zip /home/travis/build/hn-88/opencvdeb/opencv/build/OpenCVLocal
   
   # in case Github deploy fails
-  - curl --upload-file OpenCVbuild.zip https://transfer.sh/OpenCVbuild.zip
+  #- curl --upload-file OpenCVbuild.zip https://transfer.sh/OpenCVbuild.zip
+  # transfer.sh is down
   
 deploy:
   provider: releases
