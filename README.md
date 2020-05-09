@@ -8,3 +8,5 @@ try
 https://stackoverflow.com/questions/3766740/overriding-a-default-option-value-in-cmake-from-a-parent-cmakelists-txt
 ?
 
+Fails, since the packaging tool looks for files like *libopencv_highgui.so.4.3* while the existing files are named like *libopencv_highgui.so*
+
