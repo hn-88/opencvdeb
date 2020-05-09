@@ -17,7 +17,7 @@ install:
 
 script:
   - git clone https://github.com/opencv/opencv
-  - git checkout 4.3.0
+  - git checkout -b 4.3.0
   - cd opencv
   - mkdir build
   - cd build
