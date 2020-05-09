@@ -14,3 +14,7 @@ Fails, since the packaging tool looks for files like *libopencv_highgui.so.4.3* 
 
 2. So, making zip files, Windows builds, and so on. 
 
+These can be used to expedite builds on Travis-CI and Appveyor.com which use standardized build images. 
+
+These are available in the [releases tab](https://github.com/hn-88/opencvdeb/releases).
+
