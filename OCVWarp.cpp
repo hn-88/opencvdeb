@@ -6,7 +6,8 @@
 int main(int argc,char *argv[])
 {
 	 
-  std::cout << std::endl << "Finished." << std::endl;
+  //std::cout << std::endl << "Finished." << std::endl;
+	// iostream.h would be needed for this :)
     return 0;
 	   
 	   
