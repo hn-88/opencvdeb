@@ -1,0 +1,40 @@
+language: cpp
+
+compiler:
+  - gcc
+  
+before_install:
+  - sudo apt-get update
+
+install:
+
+# OpenCV install code
+# with inputs from
+# https://stackoverflow.com/questions/54531215/how-to-install-opencv-4-on-travis-ci
+  - sudo apt-get install -y build-essential
+  - sudo apt-get install -y cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+  - sudo apt-get install -y libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+script:
+  - wget https://github.com/opencv/opencv/archive/4.3.0.zip
+  - unzip 4.3.0.zip
+  - cd opencv-4.3.0
+  - mkdir build
+  - cd build
+  - cmake -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_INSTALL_PREFIX=OpenCVLocal ..
+  - cat CMakeCache.txt | grep CPACK_BINARY_DEB
+  - make -j2
+  - make install
+  - cd 
+  
+  
+  - zip -r OpenCVbuild.zip /home/travis/home/travis/build/hn-88/opencv/opencv-4.3.0/build/OpenCVLocal
+  # though it says installing to /home/travis/build/hn-88/opencv/opencv-4.3.0/build/OpenCVLocal 
+  
+deploy:
+  provider: releases
+  token: $mytokenname
+  file_glob: true
+  file: OpenCVbuild.zip
+  draft: true
+  edge: true
