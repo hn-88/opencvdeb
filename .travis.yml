@@ -25,7 +25,7 @@ script:
   #- cat CMakeCache.txt | grep CPACK_BINARY_DEB
   - make -j2
   - make install
-  - cd 
+  - cd ../..
   
   - zip -r OpenCVbuild.zip /home/travis/build/hn-88/opencvdeb/opencv/build/OpenCVLocal
   
