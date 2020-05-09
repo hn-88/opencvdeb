@@ -24,14 +24,16 @@ install:
  - cmd: setx -m OpenCV_DIR C:\projects\ocvwarp\opencv-3.4.9\build\install\x86\vc14
  - cmd: setx path "%path%;C:\projects\ocvwarp\opencv-3.4.9\build\install\x86\vc14\bin;C:\projects\ocvwarp\opencv-3.4.9\build\install\x86\vc14\lib"
  - refreshenv
+ - 7z a OpenCV.zip zip C:\projects\ocvwarp\opencv-3.4.9\build\install\*
   
   
-#build:
-#  project: OCVWarpWin32.vcxproj
+build:
+  project: dummy.vcxproj
 
-#  verbosity: minimal
+  verbosity: minimal
  
 artifacts:
 - path: opencv-4.3.0\build\install\x86\vc14\bin\*.dll
   name: OpenCV dlls
-    
+  
+- path: OpenCV.zip
