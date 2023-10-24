@@ -18,3 +18,5 @@ These can be used to expedite builds on Travis-CI and Appveyor.com which use sta
 
 These are available in the [releases tab](https://github.com/hn-88/opencvdeb/releases).
 
+3. This way of building is now superseded by using the binaries available on https://github.com/opencv/opencv/releases or using [choco install](https://chocolatey.org/install) for Windows and the binaries available in the Ubuntu distibution, since those binaries now contain the necessary ffmpeg support. Example build would be [OCVWarp 2.70](https://github.com/hn-88/OCVWarp/releases/tag/v2.70) for which the build yml for Travis is [here](https://github.com/hn-88/OCVWarp/blob/8f6c541fc5973c26a787f50d857a8c6e72e45ac1/.travis.yml), the Windows appveyor build yml using chocolatey is [here](https://github.com/hn-88/OCVWarp/blob/8f6c541fc5973c26a787f50d857a8c6e72e45ac1/appveyor.yml). An example for later builds with github actions using github releases and cache is the pan2fulldome build yml [here](https://github.com/hn-88/pan2fulldome/blob/191f1c510bcd2f78721264802769e8a25d2e0608/.github/workflows/msbuild.yml).
+
